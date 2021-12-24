@@ -26,7 +26,7 @@ module "networking" {
   vnetcidr             = var.vnetcidr
   websubnetcidr        = var.websubnetcidr
   wassubnetcidr        = var.wassubnetcidr
-  #imgsubnetcidr        = var.imgsubnetcidr
+  imgsubnetcidr        = var.imgsubnetcidr
   dbsubnetcidr  = var.dbsubnetcidr
   bassubnetcidr = var.bassubnetcidr
   depends_on = [
@@ -41,7 +41,7 @@ module "securitygroup" {
   wassubnet_id   = module.networking.wassubnet_id
   websubnet_id   = module.networking.websubnet_id
   dbsubnet_id    = module.networking.dbsubnet_id
-  #imgsubnet_id   = module.networking.imgsubnet_id
+  imgsubnet_id   = module.networking.imgsubnet_id
   bastion_id    = module.networking.bastion_id
   web_priority  = var.web_priority
   web_direction = var.web_direction
@@ -68,6 +68,7 @@ module "securitygroup" {
   db_dport       = var.db_dport
   db_sprefix     = var.db_sprefix
   db_dprefix     = var.db_dprefix
+  */
   img_priority   = var.img_priority
   img_direction  = var.img_direction
   img_access     = var.img_access
@@ -76,7 +77,7 @@ module "securitygroup" {
   img_dport      = var.img_dport
   img_sprefix    = var.img_sprefix
   img_dprefix    = var.img_dprefix
-  */
+
   bas_allocation = var.bas_allocation
   bas_sku        = var.bas_sku
   depends_on = [
@@ -91,8 +92,9 @@ module "compute" {
   resource_group         = module.resource.resource_group_name
   wassubnet_id           = module.networking.wassubnet_id
   websubnet_id           = module.networking.websubnet_id
+  imgsubnet_id           = module.networking.imgsubnet_id
   ilb_healthprobe        = module.loadbalance.ilb_healthprobe
-  nsg_was_id             = module.securitygroup.nsg_was_id
+  nsg_img_id             = module.securitygroup.nsg_img_id
   ilb_backend_address_id = module.loadbalance.ilb_backend_address_id
   web_vm_z1_1pub         = var.web_vm_z1_1pub
   web_vm_z1_2pub         = var.web_vm_z1_2pub
@@ -109,7 +111,7 @@ module "compute" {
   webvm-img-off          = var.webvm-img-off
   webvm-img-sku          = var.webvm-img-sku
   webvm-img-ver          = var.webvm-img-ver
-  /* was-pubip-allo         = var.was-pubip-allo
+  was-pubip-allo         = var.was-pubip-allo
   was-pubip-sku          = var.was-pubip-sku
   was-vm-size            = var.was-vm-size
   wasvm-disk-cach        = var.wasvm-disk-cach
@@ -123,7 +125,7 @@ module "compute" {
   wasvm-os-username      = var.wasvm-os-username
   wasvm-os-userpw        = var.wasvm-os-userpw
   wasvm-dis-pw-auth      = var.wasvm-dis-pw-auth
-  */
+
 }
 
 

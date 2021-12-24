@@ -61,11 +61,11 @@ resource "azurerm_virtual_machine_extension" "vmex_web_z2_2" {
   
   settings = <<SETTINGS
     {
-        "script": "${filebase64("proxy.sh")}"
+        "script": "${filebase64("proxyimg.sh")}"
     }
     SETTINGS
     
     depends_on = [
-      azurerm_linux_virtual_machine.web_z2_2
+      azurerm_virtual_machine_extension.vmex_was
     ]
 }

@@ -11,9 +11,9 @@ output "dbsubnet_id" {
   value = azurerm_subnet.db_subnet.id
 }
 
-/*output "imgsubnet_id" {
+output "imgsubnet_id" {
   value = azurerm_subnet.img_subnet.id
-}*/
+}
 
 output "bastion_id" {
   value = azurerm_subnet.AzureBastionSubnet.id

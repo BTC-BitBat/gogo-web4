@@ -33,10 +33,10 @@ variable "bassubnetcidr" {
   #default = "172.16.4.0/24"
 }
 
-#variable "imgsubnetcidr" {
+variable "imgsubnetcidr" {
   #type    = string
   #default = "172.16.5.0/24"
-#}
+}
 
 #=========web_nsg_rule============================
 variable "web_priority" {
@@ -141,7 +141,7 @@ variable "was_dprefix" {
   #default = "*"
 }
 #===========db_nsg_rule=======================
-/*
+
 variable "db_priority" {
   #type    = string
   #default = "100"
@@ -221,7 +221,7 @@ variable "img_dprefix" {
   #type    = string
   #default = "*"
 }
-*/
+
 variable "bas_allocation" {
   #type = string
   #default = "Static"  
@@ -411,7 +411,8 @@ variable "webvm-img-ver" {
   #default = "latest"
 }
 
-/*variable "del-os-termi" {
+/*
+variable "del-os-termi" {
   default = true
 }
 variable "del-data-termi" {
@@ -458,7 +459,7 @@ variable "web-vmex-##typever" {
 }
 */
 ######################111 was vm
-/*
+
 variable "was-pubip-allo" {
   #type = string
   #default = "Static"
@@ -526,7 +527,7 @@ variable "wasvm-os-userpw" {
 
 variable "wasvm-dis-pw-auth" {
   default = false
-}*/
+}
 ##########################112 db
 variable "db-ver" {
   #type = string
@@ -608,16 +609,16 @@ variable "was-img-vm-sshkey" {
   #default = "rara"
 }
 
-variable "was-img-vm-username" {
+#variable "was-img-vm-username" {
   #type = string
   #default = "rara"
-}
+#}
 
 variable "was-img-vm-disk-cach" {
   #type = string
   #default = "ReadWrite"
 }
-variable "was-img-vm-disk-acc#type" {
+variable "was-img-vm-disk-acctype" {
   #type = strin#g
   #default = "StandardSSD_LRS"
 }
@@ -643,16 +644,16 @@ variable "was-img-vmex-pub" {
   #type = string
   #default = "Microsoft.Azure.Extensions"
 }
-variable "was-img-vmex-#type" {
+variable "was-img-vmex-type" {
   #type = strin#g
   #default = "CustomScript"
 }
-variable "was-img-vmex-##typever" {
+variable "was-img-vmex-type-ver" {
   #type = strin#g
   #default = "2.0"
 }
 
-variable "was-shareimg-os#type" {
+variable "was-shareimg-ostype" {
   #type = strin#g
   #default = "Linux"
 }
@@ -661,8 +662,4 @@ variable "was-shareimg-spe" {
   default = true
 }
 
-variable "was-shareimg-os#type" {
-  #type = strin#g
-  #default = "Linux"
-}
 */

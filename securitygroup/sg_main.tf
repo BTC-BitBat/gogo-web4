@@ -90,7 +90,7 @@ resource "azurerm_bastion_host" "bastion_host" {
 
 
 
-/*resource "azurerm_network_security_group" "nsg_img" {
+resource "azurerm_network_security_group" "nsg_img" {
   name                = "${var.name}_nsg_img"
   location            = var.location
   resource_group_name = var.resource_group
@@ -108,9 +108,7 @@ resource "azurerm_bastion_host" "bastion_host" {
   }
 
   
-  depends_on = [
-    azurerm_subnet.img_subnet
-  ]
+ 
 
 }
-*/
+

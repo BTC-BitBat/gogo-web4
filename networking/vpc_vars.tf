@@ -23,7 +23,7 @@ variable "bassubnetcidr" {
   #default = "172.16.4.0/24"
 }
 
-/*variable "imgsubnetcidr" {
+variable "imgsubnetcidr" {
   type    = string
   #default = "172.16.5.0/24"
-}*/
+}

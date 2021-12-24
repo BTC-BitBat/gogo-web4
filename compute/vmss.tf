@@ -22,12 +22,15 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
             public_key = azurerm_ssh_public_key.star_ssh.public_key
         }*/
 
-  source_image_reference {
+  /*source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
     sku       = "18.04-LTS"
     version   = "latest"
-  }
+  }*/
+
+  source_image_id = azurerm_image.image.id
+  overprovision = false
 
   os_disk {
     storage_account_type = "Standard_LRS"
@@ -41,7 +44,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
   network_interface {
     name                      = "was-nwif"
     primary                   = true
-    network_security_group_id = var.nsg_was_id
+    network_security_group_id = var.nsg_img_id
 
     ip_configuration {
       name                                   = "was_ipcfg"
@@ -50,9 +53,12 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
       load_balancer_backend_address_pool_ids = [var.ilb_backend_address_id]
 
 
-      public_ip_address {
-        name = "${var.name}_vmss_pubip"
-      }
+     
     }
+
+    
   }
+  depends_on = [
+    azurerm_image.image
+  ]
 }

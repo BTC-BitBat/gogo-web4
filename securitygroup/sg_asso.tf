@@ -25,7 +25,7 @@ resource "azurerm_subnet_network_security_group_association" "nsgass_db" {
     azurerm_network_security_group.nsg_db
   ]
 }
-/*
+
 # Was_img security group과 Was_img subnet 합침
 resource "azurerm_subnet_network_security_group_association" "nsgass_img" {
   subnet_id                 = var.imgsubnet_id
@@ -33,4 +33,4 @@ resource "azurerm_subnet_network_security_group_association" "nsgass_img" {
   depends_on = [
     azurerm_network_security_group.nsg_img
   ]
-}*/
+}

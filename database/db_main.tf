@@ -12,7 +12,7 @@ resource "azurerm_mysql_server" "mysql" {
   backup_retention_days             = 7
   geo_redundant_backup_enabled      = true
   infrastructure_encryption_enabled = false
-  public_network_access_enabled     = false
+  public_network_access_enabled     = true
   ssl_enforcement_enabled           = var.ssl-enforce
 
 }
@@ -29,7 +29,7 @@ resource "azurerm_mysql_database" "db" {
     azurerm_mysql_server.mysql
   ]
 }
-/*
+
 # SQL Server Firewall rule 생성
 resource "azurerm_mysql_firewall_rule" "db_firewall" {
   name                = "${var.name}_db_fire"
@@ -38,11 +38,15 @@ resource "azurerm_mysql_firewall_rule" "db_firewall" {
   start_ip_address    = var.db-fw-startip
   end_ip_address      = var.db-fw-endip
 
+  timeouts {
+    delete = "15m"
+  }
+
   depends_on = [
     azurerm_mysql_database.db
   ]
 }
-*/
+
 ##### Mysql Configuration #####
 resource "azurerm_mysql_configuration" "db_conf" {
   resource_group_name = var.resource_group

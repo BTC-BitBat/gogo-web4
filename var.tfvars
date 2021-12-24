@@ -14,7 +14,7 @@ dbsubnetcidr = "172.16.3.0/24"
 
 bassubnetcidr = "172.16.4.0/24"
 
-#imgsubnetcidr = "172.16.5.0/24"
+imgsubnetcidr = "172.16.5.0/24"
 
 #=========web_nsg_rule============================
 web_priority = "101"
@@ -57,7 +57,7 @@ was_sprefix = "*"
 
 was_dprefix = "*"
 #===========db_nsg_rule=======================
-/*
+
 db_priority = "100"
 
 db_direction = "Inbound"
@@ -73,9 +73,9 @@ db_dport = "3306"
 db_sprefix = "*"
 
 db_dprefix = "*"
-*/
+
 #####################IMG_nsg_rule#######################
-/*
+
 img_priority = "103"
 
 img_direction = "Inbound"
@@ -91,7 +91,7 @@ img_dport = ["80" , "8080"]
 img_sprefix = "*"
 
 img_dprefix = "*"
-*/
+
 ####========================Bastion===================================
 bas_allocation = "Static"  
 

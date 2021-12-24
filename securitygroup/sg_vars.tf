@@ -19,7 +19,7 @@ variable "was_priority" {
   #type    = string
   #default = "102"
 }
-
+variable "imgsubnet_id" {}
 variable "was_direction" {
   #type    = string
   #default = "Inbound"
@@ -94,7 +94,7 @@ variable "db_dprefix" {
   #type    = string
   #default = "*"
 }
-
+*/
 variable "img_priority" {
   #type    = string
   #default = "103"
@@ -134,7 +134,7 @@ variable "img_dprefix" {
   #type    = string
   #default = "*"
 }
-*/
+
 variable "bas_allocation" {
   #type = string
   #default = "Static"  

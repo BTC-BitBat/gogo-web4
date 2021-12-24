@@ -32,10 +32,10 @@ resource "azurerm_subnet" "AzureBastionSubnet" { #애저베스천 사용을 위�
   address_prefixes     = [var.bassubnetcidr] #IP주소d
 }
 
-/*
+
 resource "azurerm_subnet" "img_subnet" {
   name                 = "${var.name}_img_subnet"
   resource_group_name  = var.resource_group
   virtual_network_name = var.virtual_network_name
   address_prefixes      = [var.imgsubnetcidr]
-}*/
+}

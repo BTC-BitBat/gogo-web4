@@ -76,7 +76,7 @@ variable "webvm-img-ver" {
   #type = string
   #default = "latest"
 }
-/*
+
 variable "wasvm-img-pub" {
   #type = string
   #default = "Canonical"
@@ -142,14 +142,15 @@ variable "was-pubip-sku" {
 variable "was-vm-size" {
   #type = string
   #default = "Standard_DS1_v2"
-}*/
+}
 variable "ilb_healthprobe" {
   
 }
 
-variable "nsg_was_id" {
+variable "nsg_img_id" {
   
 }
 variable "ilb_backend_address_id" {
   
 }
+variable "imgsubnet_id" {}
